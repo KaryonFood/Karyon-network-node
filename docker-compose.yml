@@ -12,17 +12,17 @@ services:
     restart: always
     depends_on:
       - "ethereum-node"
-    # command:
-    #   [
-    #     "./scripts/wait-for-it.sh",
-    #     "ethereum-node:8545",
-    #     "--",
-    #     "npm",
-    #     "run",
-    #     "start",
-    #   ]
+    command:
+      [
+        "./scripts/wait-for-it.sh",
+        "ethereum-node:8545",
+        "--",
+        "npm",
+        "run",
+        "start",
+      ]
     environment:
-      INSTANCE_NAME: "VitaNick node"
+      INSTANCE_NAME: "node" #Add your instance name here
       WS_SECRET: "&6s61thEYAY9upDOgVihSAeGu!D!rP"
       WS_SERVER: "https://stats.karyonnet.karyonfood.com"
       RPC_HOST: "ethereum-node"
