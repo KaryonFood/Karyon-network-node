@@ -2,11 +2,12 @@ version: "3.8"
 
 services:
   ethereum-node:
-    image: "karyonfood/ethereum-node:peer"
+    image: "karyonfood/besu-peer"
     restart: always
-    environment:
-      bootnodeIp: "34.76.50.237"
-      bootnodeId: "5e9abde7fad370d9070c52be8e84eddc568dfe1716bf49878502e50ecc4296e1a033148659a99c11ab6d679f70a0d91383ab928b61f8492d2e3cd3ed25b587ed"
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "8545:8545"
   ethstats-client:
     image: "karyonfood/ethstats-client"
     restart: always
@@ -24,5 +25,5 @@ services:
     environment:
       INSTANCE_NAME: "node" #Add your instance name here
       WS_SECRET: "&6s61thEYAY9upDOgVihSAeGu!D!rP"
-      WS_SERVER: "https://stats.karyonnet.karyonfood.com"
+      WS_SERVER: "https://stats.karyon.karyonfood.com"
       RPC_HOST: "ethereum-node"
